@@ -1,4 +1,3 @@
-import Table from "react-bootstrap/Table";
 import AxiosConfig from "../../axiosConfig";
 import { useEffect, useState } from "react";
 import CardView from "./card";
