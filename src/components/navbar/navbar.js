@@ -9,6 +9,7 @@ const AppNavbar = () => {
         <Nav className="me-auto">
           <Nav.Link href="/">Table</Nav.Link>
           <Nav.Link href="card-list">Card List</Nav.Link>
+          <Nav.Link href="login">Login</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

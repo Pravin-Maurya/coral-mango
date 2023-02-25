@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-container {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: fit-content;
+  max-width: 450px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 10px;
+  padding: 30px;
+}
+@media screen and (max-width: 767px) {
+  .login-container {
+    width: 100%;
+    padding: 12px;
+  }
+}
+.title {
+  text-align: center;
+}
+.horizontal-line {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.form {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.input-lebel {
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.input-field {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #bfe7f5;
+}
+.errMsg {
+  color: rgb(247, 92, 92);
+  font-size: 12px;
+  text-align: left;
+}
+.submitButton {
+  margin-top: 15px;
+}
