@@ -3,6 +3,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import "./navbar.css";
 
 const AppNavbar = () => {
   const [userName, setUsername] = useState("");
@@ -19,18 +21,53 @@ const AppNavbar = () => {
     window.location.reload();
   };
   return (
-    <Navbar>
-      <Container>
-        <Nav className="me-auto">
-          <Nav.Link href="/">Table</Nav.Link>
-          <Nav.Link href="card-list">Card List</Nav.Link>
-          {!userName && <Nav.Link href="login">Login</Nav.Link>}
-        </Nav>
-      </Container>
-      <Button onClick={logout} style={{ marginRight: "10px" }}>
-        Logout
-      </Button>
-    </Navbar>
+    <>
+      <Navbar className="navContainer">
+        <ul className="linkContainer">
+          <li className="linkList">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "activeClassName" : "inActiveClassName"
+              }
+            >
+              Table
+            </NavLink>
+          </li>
+          <li className="linkList">
+            <NavLink
+              to="/card-list"
+              className={({ isActive }) =>
+                isActive ? "activeClassName" : "inActiveClassName"
+              }
+            >
+              Card List
+            </NavLink>
+          </li>
+          {!userName && (
+            <li className="linkList">
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "activeClassName" : "inActiveClassName"
+                }
+              >
+                Login
+              </NavLink>
+            </li>
+          )}
+        </ul>
+        {userName && (
+          <div className="nameLogoutContainer">
+            <p>{userName}</p>
+            <Button onClick={logout} style={{ marginRight: "10px" }}>
+              Logout
+            </Button>
+          </div>
+        )}
+      </Navbar>
+      <hr />
+    </>
   );
 };
 export default AppNavbar;

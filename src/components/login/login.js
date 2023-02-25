@@ -26,7 +26,7 @@ const Login = () => {
       if (password === "") {
         setPasswordErr("Please Enter Password");
       } else {
-        setErrorMsg("Please enter correct credentials");
+        setErrorMsg("Invalid Credentials!");
       }
     }
   };

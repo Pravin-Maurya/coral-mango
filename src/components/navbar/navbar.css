@@ -1,0 +1,25 @@
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.linkContainer {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.activeClassName {
+  font-size: large;
+  font-weight: 700;
+}
+.inActiveClassName {
+  font-size: large;
+  font-weight: 500;
+  text-decoration: none;
+}
+.nameLogoutContainer {
+  display: flex;
+  gap: 10px;
+}
