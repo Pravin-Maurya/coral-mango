@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="topContainer">
       <div className="login-container">
         <h3 className="title">Demo Login</h3>
         <hr className="horizontal-line" />

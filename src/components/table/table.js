@@ -24,15 +24,12 @@ const TableData = () => {
   }, []);
 
   useEffect(() => {
-    setFilteredData(seachName());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchInput]);
-
-  const seachName = () => {
-    return tableData.filter((data) =>
-      data.name.toLowerCase().includes(searchInput.toLowerCase())
+    setFilteredData(
+      tableData.filter((data) =>
+        data.name.toLowerCase().includes(searchInput.toLowerCase())
+      )
     );
-  };
+  }, [searchInput, tableData]);
 
   return (
     <div className="tableContainer">
@@ -43,7 +40,7 @@ const TableData = () => {
             placeholder="Search by name"
             onChange={(event) => setSearchInput(event.target.value)}
           />
-          <Button onClick={seachName}>Search</Button>
+          <Button>Search</Button>
         </InputGroup>
       </div>
       {searchInput && (
