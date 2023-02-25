@@ -1,0 +1,17 @@
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.filterResultContainer {
+  height: 60px;
+  background-color: rgb(139, 203, 243);
+  color: rgb(7, 135, 248);
+  font-size: 18px;
+  text-align: center;
+  padding: 15px;
+  font-weight: 700;
+  margin: 10px;
+  border-radius: 8px;
+}
