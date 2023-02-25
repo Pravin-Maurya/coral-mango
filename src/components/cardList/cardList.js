@@ -7,7 +7,7 @@ const CardList = () => {
   const getTableData = async () => {
     try {
       const response = await AxiosConfig.put("/api/react-test");
-      console.log(response);
+
       setTableData(response.data);
     } catch (error) {
       console.log(error);

@@ -9,7 +9,7 @@ const TableData = () => {
   const [tableData, setTableData] = useState([]);
   const [filteredData, setFilteredData] = useState(tableData);
   const [searchInput, setSearchInput] = useState("");
-  console.log(searchInput);
+
   const getTableData = async () => {
     try {
       const response = await AxiosConfig.put("/api/react-test");

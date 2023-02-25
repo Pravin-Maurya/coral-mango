@@ -10,7 +10,6 @@ const AppNavbar = () => {
 
     if (storedDetails) {
       setUsername(JSON.parse(storedDetails));
-      console.log(setUsername);
     }
   }, []);
   const logout = () => {
