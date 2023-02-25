@@ -57,7 +57,7 @@ const AppNavbar = () => {
         </ul>
         {userName && (
           <div className="nameLogoutContainer">
-            <p>{userName}</p>
+            <p className="userName">{userName}</p>
             <Button onClick={logout} style={{ marginRight: "10px" }}>
               Logout
             </Button>
