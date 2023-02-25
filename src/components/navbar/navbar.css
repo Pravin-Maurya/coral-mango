@@ -1,6 +1,10 @@
 .navContainer {
   display: flex;
   justify-content: space-between;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  background: rgb(224, 234, 239);
+  margin-bottom: 10px;
 }
 .linkContainer {
   list-style-type: none;
