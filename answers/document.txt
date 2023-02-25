@@ -1,0 +1,8 @@
+1. Download code and open in vscode, open new terminal and run commond "npm install" so that all required dependencies
+ in the project get installed.
+
+2. Use commond "npm start" to run project, open chrome browser type "http://localhost:3000" you will see Landing page.
+
+3. To run code(Section III) section, first stop the server(control +c) and then run commond "node SectionIII/code.js",
+ you will see console output in terminal.
+
