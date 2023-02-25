@@ -1,5 +1,5 @@
 import "./login.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -30,6 +30,12 @@ const Login = () => {
       }
     }
   };
+  useEffect(() => {
+    const storedDetails = localStorage.getItem("username");
+    if (storedDetails) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   return (
     <div className="topContainer">
