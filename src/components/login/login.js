@@ -1,6 +1,7 @@
 import "./login.css";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -8,12 +9,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
 
   const loginDemo = (event) => {
     event.preventDefault();
 
     if (username === "demo@coralmango.com" && password === "demo123") {
-      console.log("Logined");
+      localStorage.setItem("username", JSON.stringify(username));
+      navigate("/", { replace: true });
+      window.location.reload();
     } else {
       if (username === "") {
         setUsernameErr("Please enter username");
