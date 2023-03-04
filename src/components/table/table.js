@@ -12,7 +12,7 @@ const TableData = () => {
 
   const getTableData = async () => {
     try {
-      const response = await AxiosConfig.put("/api/react-test");
+      const response = await AxiosConfig.get("/api/react-test");
 
       setTableData(response.data);
     } catch (error) {
@@ -39,6 +39,7 @@ const TableData = () => {
             type="text"
             placeholder="Search by name"
             onChange={(event) => setSearchInput(event.target.value)}
+            value={searchInput}
           />
           <Button>Search</Button>
         </InputGroup>
