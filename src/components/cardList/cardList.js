@@ -6,7 +6,7 @@ const CardList = () => {
   const [tableData, setTableData] = useState([]);
   const getTableData = async () => {
     try {
-      const response = await AxiosConfig.put("/api/react-test");
+      const response = await AxiosConfig.get("/api/react-test");
 
       setTableData(response.data);
     } catch (error) {
