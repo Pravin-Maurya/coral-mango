@@ -1,20 +1,19 @@
 import CardView from "./card";
 import useFetch from "../fetchdata";
 import { useEffect } from "react";
-import useAuth from "../useAuth";
+
 import { useNavigate } from "react-router-dom";
 
 const CardList = () => {
-  const auth = useAuth();
-
   const tableData = useFetch();
   const navigation = useNavigate();
 
-  useEffect(() => {
-    if (!auth) {
-      navigation("/login");
-    }
-  }, [auth, navigation]);
+  // useEffect(() => {
+  //   const userData = localStorage.getItem("username");
+  //   if (userData) {
+  //     navigation("/login");
+  //   }
+  // }, []);
 
   return (
     <div className="container">
