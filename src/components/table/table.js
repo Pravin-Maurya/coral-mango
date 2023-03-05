@@ -4,11 +4,13 @@ import { Button } from "react-bootstrap";
 import "./table.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useAuth from "../useAuth";
 
 import useFetch from "../fetchdata";
 
 const TableData = () => {
   const tableData = useFetch();
+  const auth = useAuth();
   const [filteredData, setFilteredData] = useState();
   const [searchInput, setSearchInput] = useState("");
   const [sortedbyName, setSortedbyName] = useState();
@@ -24,11 +26,10 @@ const TableData = () => {
   }, [searchInput, tableData]);
 
   useEffect(() => {
-    const userData = localStorage.getItem("username");
-    if (!userData) {
+    if (!auth) {
       navigation("/login");
     }
-  }, [navigation]);
+  }, [auth, navigation]);
 
   useEffect(() => {
     if (sortedbyName) {
