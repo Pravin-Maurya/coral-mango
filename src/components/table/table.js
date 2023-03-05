@@ -77,15 +77,13 @@ const TableData = () => {
             <Button>Search</Button>
           </InputGroup>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: "15px",
-          }}
-        >
-          <Button onClick={shortByName}>Short by name</Button>
-          <Button onClick={shortByAge}>Short by age</Button>
+        <div>
+          <Button onClick={shortByName} className="m-2">
+            Short by name
+          </Button>
+          <Button onClick={shortByAge} className="m-2">
+            Short by age
+          </Button>
         </div>
       </div>
       {searchInput && (
