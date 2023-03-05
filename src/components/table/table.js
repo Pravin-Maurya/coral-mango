@@ -32,11 +32,14 @@ const TableData = () => {
   }, [navigation]);
 
   useEffect(() => {
-    setFilteredData(sortedbyName);
-  }, [sortedbyName]);
-  useEffect(() => {
-    setFilteredData(sortByAge);
-  }, [sortByAge]);
+    if (sortedbyName) {
+      setFilteredData(sortedbyName);
+    }
+    if (sortByAge) {
+      setFilteredData(sortByAge);
+    }
+  }, [sortByAge, sortedbyName]);
+
   const shortByName = () => {
     setSortedbyName(
       filteredData.sort((a, b) => {
