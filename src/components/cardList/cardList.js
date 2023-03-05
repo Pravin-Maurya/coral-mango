@@ -1,31 +1,20 @@
-import AxiosConfig from "../../axiosConfig";
-import { useEffect, useState } from "react";
 import CardView from "./card";
+import useFetch from "../fetchdata";
 
 const CardList = () => {
-  const [tableData, setTableData] = useState([]);
-  const getTableData = async () => {
-    try {
-      const response = await AxiosConfig.get("/api/react-test");
-
-      setTableData(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getTableData();
-  }, []);
+  const tableData = useFetch();
 
   return (
     <div className="container">
       <div className="row">
-        {tableData &&
-          tableData.map((data, index) => (
-            <div className="col-6 col-sm-4 col-md-4 col-lg-3" key={index}>
-              <CardView cardData={data} />
-            </div>
-          ))}
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          {tableData &&
+            tableData.map((data, index) => (
+              <div className="col-6 col-sm-4 col-md-4 col-lg-3" key={index}>
+                <CardView cardData={data} />
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

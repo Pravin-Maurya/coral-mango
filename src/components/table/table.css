@@ -1,8 +1,7 @@
 .tableContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 10px;
 }
 .filterResultContainer {
   height: 60px;
@@ -14,4 +13,8 @@
   font-weight: 700;
   margin: 10px;
   border-radius: 8px;
+}
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
 }

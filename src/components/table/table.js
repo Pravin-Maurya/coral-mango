@@ -1,27 +1,18 @@
 import Table from "react-bootstrap/Table";
-import AxiosConfig from "../../axiosConfig";
-import { useEffect, useState } from "react";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Button } from "react-bootstrap";
 import "./table.css";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+import useFetch from "../fetchdata";
 
 const TableData = () => {
-  const [tableData, setTableData] = useState([]);
-  const [filteredData, setFilteredData] = useState(tableData);
+  const tableData = useFetch();
+  const [filteredData, setFilteredData] = useState();
   const [searchInput, setSearchInput] = useState("");
-
-  const getTableData = async () => {
-    try {
-      const response = await AxiosConfig.get("/api/react-test");
-
-      setTableData(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getTableData();
-  }, []);
+  const navigation = useNavigate();
+  console.log(filteredData);
 
   useEffect(() => {
     setFilteredData(
@@ -31,18 +22,59 @@ const TableData = () => {
     );
   }, [searchInput, tableData]);
 
+  useEffect(() => {
+    const userData = localStorage.getItem("username");
+    if (!userData) {
+      navigation("/login");
+    }
+  }, [navigation]);
+
+  const shortByName = () => {
+    setFilteredData(
+      filteredData.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      })
+    );
+  };
+
+  const shortByAge = () => {
+    setFilteredData(
+      filteredData.sort((a, b) => {
+        return a.age - b.age;
+      })
+    );
+  };
+
   return (
     <div className="tableContainer">
-      <div className="container">
-        <InputGroup className="mb-3">
-          <input
-            type="text"
-            placeholder="Search by name"
-            onChange={(event) => setSearchInput(event.target.value)}
-            value={searchInput}
-          />
-          <Button>Search</Button>
-        </InputGroup>
+      <div className="btnContainer">
+        <div>
+          <InputGroup className="mb-3">
+            <input
+              type="text"
+              placeholder="Search by name"
+              onChange={(event) => setSearchInput(event.target.value)}
+              value={searchInput}
+            />
+            <Button>Search</Button>
+          </InputGroup>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "15px",
+          }}
+        >
+          <Button onClick={shortByName}>Short by name</Button>
+          <Button onClick={shortByAge}>Short by age</Button>
+        </div>
       </div>
       {searchInput && (
         <div className="filterResultContainer">
