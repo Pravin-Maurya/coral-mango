@@ -11,6 +11,7 @@ const TableData = () => {
   const tableData = useFetch();
   const [filteredData, setFilteredData] = useState();
   const [searchInput, setSearchInput] = useState("");
+  const [sortedData, setSortedData] = useState();
   const navigation = useNavigate();
   console.log(filteredData);
 
@@ -29,8 +30,11 @@ const TableData = () => {
     }
   }, [navigation]);
 
+  useEffect(() => {
+    setFilteredData(sortedData);
+  }, [sortedData]);
   const shortByName = () => {
-    setFilteredData(
+    setSortedData(
       filteredData.sort((a, b) => {
         if (a.name < b.name) {
           return -1;
@@ -44,7 +48,7 @@ const TableData = () => {
   };
 
   const shortByAge = () => {
-    setFilteredData(
+    setSortedData(
       filteredData.sort((a, b) => {
         return a.age - b.age;
       })
